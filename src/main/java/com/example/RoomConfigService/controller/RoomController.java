@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/habitaciones")
-@CrossOrigin(origins = "*")  // permite llamadas desde cualquier origen
+@CrossOrigin(origins = "*")
 public class RoomController {
 
     private final RoomService service;
