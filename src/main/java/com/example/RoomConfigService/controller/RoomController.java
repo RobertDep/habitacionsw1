@@ -21,21 +21,15 @@ public class RoomController {
     public RoomController(RoomService service) {
         this.service = service;
     }
-
-    @PostMapping
-    public ResponseEntity<Room> crear(
-      @RequestBody Room room,
-      @AuthenticationPrincipal Jwt jwt        // <--- aquí tienes el token ya decodificado
-  ) {
-    Long userId = Long.valueOf(jwt.getClaim("userId"));      // claim que emitió Auth-Service
-    String username = jwt.getSubject();                      // típicamente el sub
-    room.setUserId(userId);
-    room.setUsername(username);
+@PostMapping
+public ResponseEntity<Room> crear(@RequestBody Room room) {
+    // Si no te importa quién lo crea, simplemente lo guardas:
     Room saved = service.crear(room);
     return ResponseEntity
       .created(URI.create("/api/habitaciones/" + saved.getId()))
       .body(saved);
-  }
+}
+
     @GetMapping
     public List<Room> listar() {
         return service.listarTodas();
