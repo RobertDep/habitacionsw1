@@ -23,6 +23,9 @@ public class Room {
     private String materialPared;
     private String colorPiso;
 
+  @Column(nullable = true)
   private Long userId;
+
+  @Column(nullable = true)
   private String username;
 }
