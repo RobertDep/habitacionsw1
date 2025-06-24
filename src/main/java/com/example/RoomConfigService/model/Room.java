@@ -1,5 +1,4 @@
 package com.example.RoomConfigService.model;
-// src/main/java/com/example/RoomConfigService/model/Room.java
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -24,7 +23,6 @@ public class Room {
     private String materialPared;
     private String colorPiso;
 
-      // Nuevo campo para saber quién lo creó:
   private Long userId;
   private String username;
 }
